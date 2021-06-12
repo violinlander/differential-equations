@@ -1,4 +1,6 @@
+
 import numpy as np
+import matplotlib.pyplot as plt
 
 import sys
 
@@ -18,12 +20,27 @@ print()
 
 # Input parameters
 
-a = int(input("a: "))
-K = int(input("K: "))
-b = int(input("b: "))
+a = -3.3 #int(input("a: "))
+K = 10000 #int(input("K: "))
+b = 0 #int(input("b: "))
+
+dx = (b-a)/K
 
 df = ( b - a ) / K
-x = [a + i*df for i in range(K)]
+x = np.linspace(a,b,K)
 
+
+# Poisson EQ: d2f/dx^2 + g = 0
+
+# g is zero for all x_i
+def gg(a):
+    return a**3+5*a**2+7*a + 2
+
+g = [gg(a) for a in x]
+
+fig = plt.figure()
+fig
+axes = fig.add_axes([a,0,dx,1])
+fig.show()
 
     
